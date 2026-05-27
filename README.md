@@ -1,8 +1,10 @@
 # Journal Recommender Skill
 
-`journal-recommender` is a Codex skill for recommending academic journals from a manuscript abstract. It is designed for graduate students and researchers who need a practical shortlist of journals for submission.
+`journal-recommender` is an Agent Skill for recommending academic journals from a manuscript abstract. It is designed for graduate students and researchers who need a practical shortlist of journals for submission.
 
 The skill combines abstract-based topic matching, current journal metadata, official Aims & Scope evidence, CAS/JCR ranking, review-speed and OA/APC considerations, and publication-risk checks.
+
+It follows the open Agent Skills style and can be used in skills-compatible agent runtimes such as Claude Code, Codex, Cursor, OpenClaw, and similar tools.
 
 ## What It Does
 
@@ -37,13 +39,52 @@ journal-recommender/
     └── scoring-rubric.md
 ```
 
-`SKILL.md` contains the core workflow and points Codex to the reference files only when needed. The reference files hold the longer scoring rules, data-source guidance, risk checks, and output templates.
+`SKILL.md` contains the core workflow and points the agent to the reference files only when needed. The reference files hold the longer scoring rules, data-source guidance, risk checks, and output templates.
 
 ## Installation
 
-Clone this repository into your Codex skills directory.
+### Option 1: One-line install
 
-### Windows PowerShell
+If your agent runtime supports skill installation, ask the agent directly:
+
+```text
+帮我安装这个 skill：https://github.com/zero565656/journal-recommender
+```
+
+Or use the general skills installer:
+
+```bash
+npx skills add zero565656/journal-recommender
+```
+
+If needed, specify the target agent/runtime:
+
+```bash
+npx skills add zero565656/journal-recommender -a codex
+npx skills add zero565656/journal-recommender -a claude-code
+npx skills add zero565656/journal-recommender -a cursor
+npx skills add zero565656/journal-recommender -a openclaw
+```
+
+### Option 2: Manual install
+
+Clone this repository into the skills directory used by your agent runtime.
+
+| Runtime | Install path |
+|---|---|
+| Claude Code | `~/.claude/skills/journal-recommender/` |
+| Codex CLI | `~/.codex/skills/journal-recommender/` |
+| Cursor | `~/.cursor/skills/journal-recommender/` |
+| OpenClaw | `~/.openclaw/workspace/skills/journal-recommender/` |
+| Other skills-compatible agents | Clone into that runtime's `skills/` directory |
+
+macOS / Linux:
+
+```bash
+git clone https://github.com/zero565656/journal-recommender.git ~/.codex/skills/journal-recommender
+```
+
+Windows PowerShell:
 
 ```powershell
 $skills = "$env:USERPROFILE\.codex\skills"
@@ -51,16 +92,17 @@ New-Item -ItemType Directory -Force $skills | Out-Null
 git clone https://github.com/zero565656/journal-recommender.git "$skills\journal-recommender"
 ```
 
-### macOS / Linux
+Replace the destination path if you are installing for Claude Code, Cursor, OpenClaw, or another runtime.
 
-```bash
-mkdir -p ~/.codex/skills
-git clone https://github.com/zero565656/journal-recommender.git ~/.codex/skills/journal-recommender
-```
+Restart your agent after installation so the skill can be discovered.
 
-Restart Codex after installation so the skill can be discovered.
+### Option 3: Use as a reference
+
+If your agent does not support Agent Skills auto-loading, open `SKILL.md` and paste its contents into your conversation as instructions. The skill is plain Markdown with YAML frontmatter plus reference files.
 
 ## Updating
+
+Go to the installation path for your runtime, then pull the latest version:
 
 ```bash
 cd ~/.codex/skills/journal-recommender
@@ -73,6 +115,8 @@ On Windows PowerShell:
 cd "$env:USERPROFILE\.codex\skills\journal-recommender"
 git pull
 ```
+
+Replace the path if you installed it under Claude Code, Cursor, OpenClaw, or another runtime.
 
 ## Example Prompt
 
@@ -90,4 +134,3 @@ I prefer SCI journals, CAS 1-2区 if possible. My deadline is about 8 months, an
 - It should not fabricate journal facts from memory.
 - Abstract-only tiering is a submission-strategy estimate, not an objective judgment of manuscript quality.
 - Final submission decisions should still be checked against supervisor advice, school graduation requirements, and the journal's official website.
-
