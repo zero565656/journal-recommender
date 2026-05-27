@@ -1,12 +1,13 @@
 # Data Sources
 
-Use current sources for journal facts. Do not rely on memory for impact factor, CAS/JCR tier, APC, indexing, review time, self-citation rate, annual article volume, warning-list status, author experiences, or URLs.
+Use current sources for journal facts. Do not rely on memory for publisher, impact factor, CAS/JCR tier, APC, indexing, review time, self-citation rate, annual article volume, warning-list status, author experiences, or URLs.
 
 ## Preferred Source Order
 
 | Data | Prefer | Fallback |
 |---|---|---|
 | Aims & Scope | Official journal or publisher page | LetPub topic fields or journal description |
+| Publisher | Official journal page, publisher page, or current indexing record | LetPub/current aggregator, marked as unverified |
 | CAS partition | LetPub page-displayed "新锐期刊分区表" or current CAS source | Other current aggregators, with disclosure |
 | JCR quartile / IF | Journal Citation Reports or page-displayed source | LetPub/current aggregator, with date |
 | Indexing | Web of Science, Scopus, PubMed, DOAJ, official journal page | Aggregator metadata, marked as unverified |
@@ -44,4 +45,4 @@ Use available browsing/search/page-fetch tools in the current environment. Do no
 - If no current source is accessible, stop before making journal recommendations.
 - If only partial data is available, recommend only when scope fit and risk status are sufficiently supported; mark missing fields as `未确认`.
 - If author experience data is sparse, stale, or unavailable, write `未检索到足够公开投稿经验，不做推断`; do not invent review experiences.
-- For final comparison tables, prioritize the necessary decision fields: recommendation level, journal, fit score, IF, CAS/JCR, review time, self-citation rate, annual article volume, APC, and risk.
+- For final comparison tables, prioritize the necessary decision fields: recommendation level, journal, publisher, fit score, IF, CAS/JCR, review time, self-citation rate, annual article volume, APC, and risk.

@@ -19,11 +19,29 @@ These are formatting templates only. Do not reuse example journal names, metrics
 策略：冲 {challenge_tier}，稳 {target_tier}，保 {safety_tier}。
 ```
 
-## Rough Screen
+## Preference Checkpoint
+
+Use this after the strategy estimate and before any journal retrieval when the user has not already given preferences.
 
 ```markdown
-## 粗筛候选期刊
+## 检索前偏好确认
 
+我已经根据摘要完成了学科和投稿策略初判。开始检索期刊前，请确认你的投稿偏好；如果没有特殊要求，也可以直接回复「默认推荐」。
+
+1. 目标分区/收录：1区 / 2区 / 3区 / SCI/SSCI / ESCI可接受 / 不限
+2. 审稿速度：越快越好 / 正常即可 / 不限制
+3. 费用与OA：优先免费或无APC / APC预算 {budget} / 必须OA / 不限制
+4. 投稿策略：冲稳保都要 / 只要稳妥期刊 / 优先快审 / 优先高影响力 / 你来平衡推荐
+5. 其他限制：毕业时间、导师指定出版社、不要某些期刊或出版社等
+
+你回复偏好后，我再开始检索并给出最终推荐。
+```
+
+## Internal Rough Screen
+
+Use only as internal working notes or when the user explicitly asks to see the screening process. Do not include this section in the default final answer.
+
+```markdown
 | 分组 | 期刊名 | ISSN | IF | CAS/JCR | 主题初匹配 | 来源 |
 |---|---|---|---:|---|---|---|
 | 冲 | {journal} | {issn} | {if_or_unknown} | {tier} | {brief_fit} | {source} |
@@ -33,13 +51,11 @@ These are formatting templates only. Do not reuse example journal names, metrics
 数据抓取日期：{date}。未确认字段已标注为 `未确认`。
 ```
 
-## Refined Screen
+## Internal Refined Screen
+
+Use only as internal working notes or when the user explicitly asks to see the screening process. Do not include this section in the default final answer.
 
 ```markdown
-## 精筛结果
-
-### {group_label}
-
 | 期刊名 | 匹配分 | Scope 证据 | 审稿/难度 | OA/APC | 风险 |
 |---|---:|---|---|---|---|
 | {journal} | {score}/5 | {scope_evidence} | {review_note} | {oa_note} | {risk_note} |
@@ -55,11 +71,11 @@ Keep final recommendations concise but decision-useful. Preserve the challenge/t
 基准策略：{baseline_note}
 数据抓取日期：{date}
 
-| 推荐级别 | 期刊 | 匹配分 | IF | 中科院/JCR | 审稿周期 | 自引率 | 年发文量 | APC | 风险 |
-|---|---|---:|---:|---|---|---:|---:|---|---|
-| 冲 | {journal} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
-| 稳 | {journal} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
-| 保 | {journal} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
+| 推荐级别 | 期刊 | 出版商 | 匹配分 | IF | 中科院/JCR | 审稿周期 | 自引率 | 年发文量 | APC | 风险 |
+|---|---|---|---:|---:|---|---|---:|---:|---|---|
+| 冲 | {journal} | {publisher_or_unknown} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
+| 稳 | {journal} | {publisher_or_unknown} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
+| 保 | {journal} | {publisher_or_unknown} | {score}/5 | {if_or_unknown} | {cas_jcr} | {review_time} | {self_cite_or_unknown} | {annual_articles_or_unknown} | {apc_or_unknown} | {risk_note} |
 
 ### 🚀 冲刊建议
 
