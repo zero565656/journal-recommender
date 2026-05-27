@@ -28,6 +28,7 @@ Keep the journal only with a visible warning when relevant:
 | CAS warning list low-risk status | Confirm with supervisor |
 | APC unknown or high | Budget risk |
 | Review time uncertain or very long | Deadline risk |
+| Author experience data unavailable | Do not infer review friendliness or acceptance likelihood |
 | Indexing data conflicts across sources | Verify manually before submission |
 
 ## Recommended Checks
@@ -49,4 +50,3 @@ Use precise language:
 - Good: "该刊显示为 ESCI，若学校要求 SCI/SSCI，请先确认是否认可。"
 - Bad: "该刊绝对安全。"
 - Bad: "不在 Beall's List，所以没有风险。"
-

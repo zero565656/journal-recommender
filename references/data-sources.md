@@ -1,6 +1,6 @@
 # Data Sources
 
-Use current sources for journal facts. Do not rely on memory for impact factor, CAS/JCR tier, APC, indexing, review time, warning-list status, or URLs.
+Use current sources for journal facts. Do not rely on memory for impact factor, CAS/JCR tier, APC, indexing, review time, self-citation rate, annual article volume, warning-list status, author experiences, or URLs.
 
 ## Preferred Source Order
 
@@ -12,6 +12,9 @@ Use current sources for journal facts. Do not rely on memory for impact factor, 
 | Indexing | Web of Science, Scopus, PubMed, DOAJ, official journal page | Aggregator metadata, marked as unverified |
 | APC/OA | Official publisher APC/OA page | LetPub/DOAJ, marked as approximate |
 | Review speed/difficulty | LetPub journal page and recent user reports | Publisher process estimates, marked as general |
+| Self-citation rate | JCR, LetPub, or current journal metrics page | Aggregator metadata, marked as unverified |
+| Annual article volume | JCR, Scopus, Web of Science, LetPub, or publisher archive | Count/estimate from recent issue archive, marked as approximate |
+| Author submission experience | LetPub recent user reports or other public, dated reports | Mark as insufficient evidence instead of guessing |
 | Risk status | CAS warning list, Beall-style lists, DOAJ/COPE/indexing checks | Manual warning with incomplete verification |
 
 ## LetPub Query References
@@ -40,4 +43,5 @@ Use available browsing/search/page-fetch tools in the current environment. Do no
 - If a primary metadata source fails, try an equivalent source and disclose the substitution.
 - If no current source is accessible, stop before making journal recommendations.
 - If only partial data is available, recommend only when scope fit and risk status are sufficiently supported; mark missing fields as `未确认`.
-
+- If author experience data is sparse, stale, or unavailable, write `未检索到足够公开投稿经验，不做推断`; do not invent review experiences.
+- For final comparison tables, prioritize the necessary decision fields: recommendation level, journal, fit score, IF, CAS/JCR, review time, self-citation rate, annual article volume, APC, and risk.
