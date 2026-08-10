@@ -1,3 +1,5 @@
+
+
 # Journal Recommender Skill
 
 `journal-recommender` is an Agent Skill for recommending academic journals from a manuscript abstract. It is designed for graduate students and researchers who need a practical shortlist of journals for submission.
@@ -81,7 +83,7 @@ Clone this repository into the skills directory used by your agent runtime.
 macOS / Linux:
 
 ```bash
-git clone https://github.com/zero565656/journal-recommender.git ~/.codex/skills/journal-recommender
+git clone https://github.com/zero565656/journal-recommender.git ~/.codex/skills/journal-recommender # Example for Codex CLI; replace with ~/.claude/..., ~/.cursor/..., or ~/.openclaw/... as needed
 ```
 
 Windows PowerShell:
